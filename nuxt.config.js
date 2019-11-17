@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'spa',
   /*
@@ -28,11 +30,14 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+		'~/plugins/components'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+		['storyblok-nuxt', {accessToken: process.env.ACCESS_TOKEN, cacheProvider: 'memory'}],
+		'@nuxtjs/dotenv'
   ],
   /*
   ** Build configuration
